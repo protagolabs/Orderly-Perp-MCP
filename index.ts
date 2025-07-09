@@ -34,7 +34,7 @@ server.registerTool("IMR",
         }
     },
     async (input) => {
-        console.error("Calculating IMR with inputs:", input);
+        console.log("Calculating IMR with inputs:", input);
         const result = account.IMR(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -57,7 +57,7 @@ server.registerTool("availableBalance",
         }
     },
     async (input) => {
-        console.error("Calculating available balance with input:", input);
+        console.log("Calculating available balance with input:", input);
         const result = account.availableBalance(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -75,7 +75,7 @@ server.registerTool("currentLeverage",
         }
     },
     async ({totalMarginRatio}) => {
-        console.error("Calculating current leverage with input:", totalMarginRatio);
+        console.log("Calculating current leverage with input:", totalMarginRatio);
         const result = account.currentLeverage(totalMarginRatio);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -97,7 +97,7 @@ server.registerTool("freeCollateral",
     },
     async (input) => {
         const {totalCollateral, totalInitialMarginWithOrders} = input.inputs;
-        console.error("Calculating free collateral with inputs:", input.inputs);
+        console.log("Calculating free collateral with inputs:", input.inputs);
         const result = account.freeCollateral({
             totalCollateral: new Decimal(totalCollateral),
             totalInitialMarginWithOrders
@@ -137,7 +137,7 @@ server.registerTool("maxQty",
         }
     },
     async (input) => {
-        console.error("Calculating maxQty with input:", input)
+        console.log("Calculating maxQty with input:", input)
         const result = account.maxQty(input.side, input.inputs, input.options);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -167,7 +167,7 @@ server.registerTool("totalCollateral",
         }
     },
     async (input) => {
-        console.error("Calculating total collateral with input:", input);
+        console.log("Calculating total collateral with input:", input);
         const result = account.totalCollateral(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -257,7 +257,7 @@ server.registerTool("totalInitialMarginWithOrders",
             ...input.inputs,
             symbolInfo: input.inputs.symbolInfo ?? null,
         };
-        console.error("Calculating total initial margin with orders with input:", inputsWithDefaultSymbolInfo)
+        console.log("Calculating total initial margin with orders with input:", inputsWithDefaultSymbolInfo)
         const result = account.totalInitialMarginWithOrders(inputsWithDefaultSymbolInfo);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -282,7 +282,7 @@ server.registerTool("totalMarginRatio",
         }
     },
     async (input) => {
-        console.error("Calculating total margin ratio with input:", input);
+        console.log("Calculating total margin ratio with input:", input);
         const result = account.totalMarginRatio(input.inputs, input.db);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -305,7 +305,7 @@ server.registerTool("totalUnrealizedROI",
         }
     },
     async (input) => {
-        console.error("Calculating total unrealized ROI with input:", input);
+        console.log("Calculating total unrealized ROI with input:", input);
         const result = account.totalUnrealizedROI(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -337,7 +337,7 @@ server.registerTool("totalValue",
         }
     },
     async (input) => {
-        console.error("Calculating total value with input:", input);
+        console.log("Calculating total value with input:", input);
         const result = account.totalValue(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -363,7 +363,7 @@ server.registerTool("MMR",
         }
     },
     async (input) => {
-        console.error("Calculating MMR with input:", input);
+        console.log("Calculating MMR with input:", input);
         const result = positions.MMR(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -398,7 +398,7 @@ server.registerTool("liqPrice",
         }
     },
     async (input) => {
-        console.error("Calculating liquidation price with input:", input);
+        console.log("Calculating liquidation price with input:", input);
         const result = positions.liqPrice(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -422,7 +422,7 @@ server.registerTool("maintenanceMargin",
         }
     },
     async (input) => {
-        console.error("Calculating maintenance margin with input:", input);
+        console.log("Calculating maintenance margin with input:", input);
         const result = positions.maintenanceMargin(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -440,7 +440,7 @@ server.registerTool("totalNotional",
         }
     },
     async (input) => {
-        console.error("Calculating total notional with input:", input);
+        console.log("Calculating total notional with input:", input);
         const result = positions.totalNotional(input.positions);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -464,7 +464,7 @@ server.registerTool("unrealizedPnL",
         }
     },
     async (input) => {
-        console.error("Calculating unrealized PnL with input:", input);
+        console.log("Calculating unrealized PnL with input:", input);
         const result = positions.unrealizedPnL(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -489,7 +489,7 @@ server.registerTool("unrealizedPnLROI",
         }
     },
     async (input) => {
-        console.error("Calculating unrealized PnL ROI with input:", input);
+        console.log("Calculating unrealized PnL ROI with input:", input);
         const result = positions.unrealizedPnLROI(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -507,7 +507,7 @@ server.registerTool("totalUnrealizedPnL",
         }
     },
     async (input) => {
-        console.error("Calculating total unrealized PnL with input:", input);
+        console.log("Calculating total unrealized PnL with input:", input);
         const result = positions.totalUnrealizedPnL(input.positions);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -533,7 +533,7 @@ server.registerTool("unsettlementPnL",
         }
     },
     async (input) => {
-        console.error("Calculating unsettled PnL with input:", input);
+        console.log("Calculating unsettled PnL with input:", input);
         const result = positions.unsettlementPnL(input.inputs);
         return {
             content: [{type: "text", text: `${result}`}]
@@ -556,7 +556,7 @@ server.registerTool("totalUnsettlementPnL",
         }
     },
     async (input) => {
-        console.error("Calculating total unsettled PnL with input:", input);
+        console.log("Calculating total unsettled PnL with input:", input);
         const result = positions.totalUnsettlementPnL(input.positions);
         return {
             content: [{type: "text", text: `${result}`}]
